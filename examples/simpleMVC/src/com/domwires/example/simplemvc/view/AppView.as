@@ -29,6 +29,7 @@ package com.domwires.example.simplemvc.view
 		private var firstNameLabel:Label;
 		private var lastNameLabel:Label;
 		private var ageLabel:Label;
+        private var sexLabel:Label;
 
 		[PostConstruct]
 		public function init():void
@@ -42,13 +43,20 @@ package com.domwires.example.simplemvc.view
 			firstNameLabel = createForm("First name:", layoutGroup, onFirstNameClicked);
 			lastNameLabel = createForm("Last name:", layoutGroup, onLastNameClicked);
 			ageLabel = createForm("Age:", layoutGroup, onAgeClicked);
+			sexLabel = createForm("Sex:", layoutGroup, onSexClicked);
 
 			viewContainer.addChild(layoutGroup);
 
 			addMessageListener(AppModelMessage.FIRST_NAME_CHANGED, firstNameChanged);
 			addMessageListener(AppModelMessage.LAST_NAME_CHANGED, lastNameChanged);
 			addMessageListener(AppModelMessage.AGE_CHANGED, ageNameChanged);
+            addMessageListener(AppModelMessage.SEX_CHANGED, sexNameChanged);
 		}
+
+        private function sexNameChanged(m:IMessage):void
+        {
+            sexLabel.text = model.sex;
+        }
 
 		private function ageNameChanged(m:IMessage):void
 		{
@@ -106,5 +114,10 @@ package com.domwires.example.simplemvc.view
 		{
 			dispatchMessage(AppViewMessage.AGE_CLICKED, null, true);
 		}
+
+        private function onSexClicked():void
+        {
+            dispatchMessage(AppViewMessage.SEX_CLICKED, null, true);
+        }
 	}
 }

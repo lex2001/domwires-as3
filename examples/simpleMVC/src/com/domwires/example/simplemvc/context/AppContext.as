@@ -8,6 +8,7 @@ package com.domwires.example.simplemvc.context
 	import com.domwires.core.mvc.context.AbstractContext;
 	import com.domwires.core.mvc.model.IModel;
 	import com.domwires.core.mvc.view.IView;
+	import com.domwires.example.simplemvc.commands.GenerateSexCommand;
 	import com.domwires.example.simplemvc.commands.GenerateAgeCommand;
 	import com.domwires.example.simplemvc.commands.GenerateFirstNameCommand;
 	import com.domwires.example.simplemvc.commands.GenerateLastNameCommand;
@@ -55,6 +56,8 @@ package com.domwires.example.simplemvc.context
 			map(AppViewMessage.FIRST_NAME_CLICKED, GenerateFirstNameCommand);
 			map(AppViewMessage.LAST_NAME_CLICKED, GenerateLastNameCommand);
 			map(AppViewMessage.AGE_CLICKED, GenerateAgeCommand);
+            map(AppViewMessage.SEX_CLICKED, GenerateSexCommand);
+
 		}
 	}
 }

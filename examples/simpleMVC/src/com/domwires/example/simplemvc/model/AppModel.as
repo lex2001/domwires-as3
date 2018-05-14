@@ -10,6 +10,16 @@ package com.domwires.example.simplemvc.model
 		private var _firstName:String;
 		private var _lastName:String;
 		private var _age:int;
+		private var _sex:String;
+
+        public function setSex(value:String):IAppModel
+        {
+            _sex = value;
+
+            dispatchMessage(AppModelMessage.SEX_CHANGED, null, true);
+
+            return this;
+        }
 
 		public function setFirstName(value:String):IAppModel
 		{
@@ -52,5 +62,10 @@ package com.domwires.example.simplemvc.model
 		{
 			return _age;
 		}
+
+        public function get sex():String
+        {
+            return _sex;
+        }
 	}
 }
