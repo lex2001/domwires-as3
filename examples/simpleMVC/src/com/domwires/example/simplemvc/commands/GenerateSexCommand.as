@@ -10,22 +10,24 @@ package com.domwires.example.simplemvc.commands
 	{
 		[Autowired]
 		public var model:IAppModel;
-		public var sexBool:Boolean = true;
-		public var maleString:String = "Male";
-		public var femaleString:String = "Female";
+
+		private var isMale:Boolean = true;
+
+		private const MALE:String = "Male";
+		private const FEMALE:String = "Female";
 
 		override public function execute():void
 		{
 			super.execute();
-			if (sexBool)
+
+			if (isMale)
 			{
-				sexBool = false;
-				model.setSex(maleString);
-			}
-			else
+				isMale = false;
+				model.setSex(MALE);
+			} else
 			{
-				sexBool = true;
-				model.setSex(femaleString);
+				isMale = true;
+				model.setSex(FEMALE);
 			}
 		}
 	}
